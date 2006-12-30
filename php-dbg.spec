@@ -2,14 +2,10 @@
 # INFO: How to get working: patching, installation, using with PHPeclipse (*very* helpful):
 #	http://www.phpeclipse.de/tiki-view_forum_thread.php?forumId=3&comments_parentId=3265
 #
-# TODO:
-#	- install dbg.ini (Source1) in /etc/php/conf.d/, restart apache2
-#	- do sth with php4
-#	- cleaning
 Summary:	dbg - PHP debbuger - extension for PHP
 Name:		php-dbg
 Version:	2.11.32
-Release:	0.1
+Release:	0.2
 License:	The DBG License Version 3.0
 Group:		Development/Languages/PHP
 Source0:	http://dl.sourceforge.net/dbg2/dbg-%{version}-src.tar.gz
@@ -48,11 +44,23 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	INSTALL_ROOT=$RPM_BUILD_ROOT
 
+install -d $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d
+install %{SOURCE1} $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/dbg.ini
+
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+%php_webserver_restart
+
+%postun
+if [ "$1" = 0 ]; then
+	%php_webserver_restart
+fi
 
 %files
 %defattr(644,root,root,755)
 # don't remove COPYING and INSTALL
 %doc AUTHORS COPYING INSTALL
+%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/dbg.ini
 %attr(755,root,root) %{php_extensiondir}/dbg.so
