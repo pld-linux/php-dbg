@@ -4,12 +4,12 @@
 #
 Summary:	dbg - PHP debbuger - extension for PHP
 Name:		php-dbg
-Version:	2.11.32
-Release:	0.2
+Version:	2.13.1
+Release:	0.1
 License:	The DBG License Version 3.0
 Group:		Development/Languages/PHP
-Source0:	http://dl.sourceforge.net/dbg2/dbg-%{version}-src.tar.gz
-# Source0-md5:	1ac7372bfcb4c5e13cad1248e071d70c
+Source0:	http://dl.sourceforge.net/dbg2/dbg-%{version}.tar.gz
+# Source0-md5:	026cc9a088ec25a81cb206c6659309a6
 Source1:	dbg.ini
 Patch0:		dbg-php-5.2.patch
 URL:		http://dd.cron.ru/dbg/
