@@ -3,6 +3,7 @@
 #	http://www.phpeclipse.de/tiki-view_forum_thread.php?forumId=3&comments_parentId=3265
 #
 Summary:	dbg - PHP debbuger - extension for PHP
+Summary(pl):	dbg - debugger dla PHP - rozszerzenie PHP
 Name:		php-dbg
 Version:	2.13.1
 Release:	0.1
@@ -25,6 +26,13 @@ DBG is a a full-featured php debugger, an interactive tool that helps
 you debugging php scripts. It works on a production and/or development
 WEB server and allows you debug your scripts locally or remotely, from
 an IDE or console. This package contain dbg extension for PHP.
+
+%description -l pl
+DBG to w pe³ni funkcjonalny debugger dla PHP - interaktywne narzêdzie
+pomagaj±ce przy diagnostyce skryptów w PHP. Dzia³a zarówno na
+produkcyjnym jak i rozwojowym serwerze WWW, pozwala na ¶ledzenie
+skryptów lokalnie jak i zdalnie, z poziomu IDE lub konsoli. Ten pakiet
+zawiera rozszerzenie dbg dla PHP.
 
 %prep
 %setup -q -n dbg-%{version}
